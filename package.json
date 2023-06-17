@@ -14,5 +14,5 @@
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.15.0",
-  "name": "mono-repo"
+  "name": "headless-alert"
 }
