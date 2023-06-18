@@ -1,0 +1,7 @@
+{
+  "extends": "@headless-alert/tsconfig/base",
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*", "*.ts"]
+}

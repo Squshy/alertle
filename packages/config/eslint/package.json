@@ -1,0 +1,17 @@
+{
+  "name": "@headless-alert/eslint-config",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-turbo": "^1.9.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-react": "7.28.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
