@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "build": "tsup"
+    "lint": "eslint \"**/*.{ts,tsx}\" --max-warnings 0",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "publishConfig": {
     "access": "public"
