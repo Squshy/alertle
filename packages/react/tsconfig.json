@@ -1,5 +1,5 @@
 {
-  "extends": "@headless-alert/tsconfig/base",
+  "extends": "@alertle/tsconfig/base",
   "compilerOptions": {
     "jsx": "react-jsx"
   },
