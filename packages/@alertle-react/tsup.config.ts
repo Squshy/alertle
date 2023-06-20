@@ -1,5 +1,9 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig((_opts) => ({
-  entry: ["./src/index.ts"],
+  splitting: false,
+  dts: true,
+  format: ["esm"],
+  entry: ["./src/index.ts", "./src/hooks.ts"],
+  ignoreWatch: ["**/dist", "**/node_modules"],
 }));

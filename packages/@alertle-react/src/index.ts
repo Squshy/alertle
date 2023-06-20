@@ -1,2 +1,2 @@
-export * from "./context";
-export * from "./alert";
+export { AlertProvider } from "./context";
+export { type Alert, AlertType } from "./alert";
