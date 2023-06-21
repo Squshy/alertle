@@ -231,9 +231,7 @@ export function useAlertContainer() {
   const [state, setState] = useState(store.getAlertMap());
 
   useEffect(() => {
-    return () => {
-      store.subscribe(() => setState(store.getAlertMap()));
-    };
+    return store.subscribe(() => setState(store.getAlertMap())) as () => void;
   }, []);
 
   return {

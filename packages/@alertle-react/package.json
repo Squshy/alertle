@@ -25,13 +25,17 @@
   "devDependencies": {
     "@alertle/eslint-config": "0.0.0",
     "@alertle/tsconfig": "0.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/node": "^20.3.1",
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "jsdom": "^22.1.0",
     "react": "18.2.0",
     "tsup": "^7.0.0",
     "typescript": "5.1.3",
+    "vite": "^4.3.9",
     "vitest": "^0.32.2"
   },
   "license": "MIT"
