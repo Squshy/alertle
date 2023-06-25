@@ -1,11 +1,8 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": [
-    "@changesets/cli/changelog",
-    { "repo": "squshy/headless-alert" }
-  ],
+  "changelog": ["@changesets/cli/changelog", { "repo": "squshy/alertle" }],
   "commit": false,
-  "fixed": ["@headless-alert/react"],
+  "fixed": [["@alertle/react"]],
   "linked": [],
   "access": "public",
   "baseBranch": "main",
