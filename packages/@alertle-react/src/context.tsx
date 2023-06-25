@@ -45,7 +45,16 @@ type AlertContext = {
 const AlertContainerContext = createContext<AlertContainerContext | null>(null);
 const AlertContext = createContext<AlertContext | null>(null);
 
-type AlertProviderProps = {
+export type AlertConfig = {
+    /**
+     * Default value for `expiresInMs` of an alert.
+     * If no value is provided for `expiresInMs` when an alert is created,
+     * this value will be used.
+     */
+  defaultExpiresInMs?: number;
+};
+
+type AlertProviderProps = AlertConfig & {
   children: ReactNode;
   alertContainer: ReactNode;
 };
@@ -103,10 +112,16 @@ export function AlertProvider(props: AlertProviderProps) {
           clearTimeout(timeout);
         }
       }
-      store.current.set(alert.key, alert);
-      store.current = new Map(store.current);
+
+      if (alert.onNotify) {
+        alert.onNotify(alert);
+      }
 
       if (alert.expiresInMs !== null && alert.expiresInMs !== Infinity) {
+        if (alert.expiresInMs === 0) {
+          return alert;
+        }
+
         const timeout = setTimeout(() => {
           expireAlert(alert);
         }, alert.expiresInMs);
@@ -114,6 +129,8 @@ export function AlertProvider(props: AlertProviderProps) {
         timeoutsRef.current.set(alert.key, timeout);
       }
 
+      store.current.set(alert.key, alert);
+      store.current = new Map(store.current);
       subscribers.current.forEach((cb) => cb());
 
       return alert;
@@ -161,9 +178,17 @@ export function AlertProvider(props: AlertProviderProps) {
     [expireAlert]
   );
 
+  // TODO: Add pause alert fn
+
   const notify = useCallback(
     (params: AlertFnParams): Alert => {
-      const alert = createAlert(params);
+      const alert = createAlert({
+        ...params,
+        expiresInMs:
+          params.expiresInMs !== undefined
+            ? params.expiresInMs
+            : props.defaultExpiresInMs,
+      });
       return addAlert(alert);
     },
     [addAlert]

@@ -3,5 +3,5 @@
 </h2>
 
 <p align="center">
-    A <i>blazingly fast</i> alert library.
+    A <i>moderatly fast</i> alert library.
 </p>

@@ -29,6 +29,7 @@ export type CreateAlertParams<Type extends AlertType = AlertType> = {
   expiresInMs?: number | null;
   onExpire?: AlertCbFn;
   onNotify?: AlertCbFn;
+  onDuplicated?: AlertCbFn;
 };
 
 export function createAlert<Type extends AlertType = AlertType>({
@@ -38,6 +39,7 @@ export function createAlert<Type extends AlertType = AlertType>({
   expiresInMs,
   onExpire,
   onNotify,
+  onDuplicated,
 }: CreateAlertParams<Type>): Alert {
   const messageKey = message.replace(/\s/g, "").toLocaleLowerCase();
   const titleKey = title?.replace(/\s/g, "").toLocaleLowerCase() || "";
@@ -52,6 +54,7 @@ export function createAlert<Type extends AlertType = AlertType>({
     title,
     onNotify,
     onExpire,
+    onDuplicated,
     createdAt: Date.now(),
     isDuplicate: false,
   };
