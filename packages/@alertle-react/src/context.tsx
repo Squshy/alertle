@@ -42,15 +42,16 @@ type AlertContext = {
   updateAlert: UpdateAlertFn;
 };
 
-const AlertContainerContext = createContext<AlertContainerContext | null>(null);
-const AlertContext = createContext<AlertContext | null>(null);
+export const AlertContainerContext =
+  createContext<AlertContainerContext | null>(null);
+export const AlertContext = createContext<AlertContext | null>(null);
 
 export type AlertConfig = {
-    /**
-     * Default value for `expiresInMs` of an alert.
-     * If no value is provided for `expiresInMs` when an alert is created,
-     * this value will be used.
-     */
+  /**
+   * Default value for `expiresInMs` of an alert.
+   * If no value is provided for `expiresInMs` when an alert is created,
+   * this value will be used.
+   */
   defaultExpiresInMs?: number;
 };
 

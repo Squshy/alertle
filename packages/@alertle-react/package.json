@@ -6,10 +6,6 @@
     ".": {
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
-    },
-    "./hooks": {
-      "import": "./dist/hooks.mjs",
-      "types": "./dist/hooks.d.ts"
     }
   },
   "typesVersion": {
