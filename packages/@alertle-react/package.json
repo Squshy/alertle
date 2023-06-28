@@ -27,7 +27,7 @@
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0"
   },
-  "keyword": [
+  "keywords": [
     "alert",
     "react",
     "alertle"
