@@ -6,6 +6,7 @@ import {
   useContext,
   useState,
   type ReactNode,
+  useMemo,
 } from "react";
 // Our imports
 import {
@@ -260,8 +261,10 @@ export function useAlertContainer() {
     return store.subscribe(() => setState(store.getAlertMap())) as () => void;
   }, []);
 
+  const alerts = useMemo(() => Array.from(state.values()), [state]);
+
   return {
-    state,
+    alerts,
     expireAlert: store.expireAlert,
     updateAlert: store.updateAlert,
   };

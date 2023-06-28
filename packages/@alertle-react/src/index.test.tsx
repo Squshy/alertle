@@ -41,11 +41,11 @@ function BaseAlert({ alert, idx }: { alert: Alert; idx: number }) {
 
 function createAlertContainer() {
   return function () {
-    const { state } = useAlertContainer();
+    const { alerts } = useAlertContainer();
 
     return (
       <div data-testid={DataTestId.ALERT_CONTAINER}>
-        {Array.from(state.values()).map((alert, i) => (
+        {alerts.map((alert, i) => (
           <BaseAlert key={alert.key} alert={alert} idx={i} />
         ))}
       </div>
