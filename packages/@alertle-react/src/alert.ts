@@ -13,7 +13,7 @@ export type Alert<Type extends AlertType = AlertType> = {
   key: string;
   type: Type;
   title?: string | undefined;
-  message: string;
+  message?: string | undefined;
   createdAt: number;
   expiresInMs: number | null;
   onNotify?: AlertCbFn;
@@ -24,7 +24,7 @@ export type Alert<Type extends AlertType = AlertType> = {
 
 export type CreateAlertParams<Type extends AlertType = AlertType> = {
   type: Type;
-  message: string;
+  message?: string | undefined;
   title?: string | undefined;
   expiresInMs?: number | null;
   onExpire?: AlertCbFn;
@@ -34,15 +34,15 @@ export type CreateAlertParams<Type extends AlertType = AlertType> = {
 
 export function createAlert<Type extends AlertType = AlertType>({
   type,
-  message,
-  title,
-  expiresInMs,
+  message = "",
+  title = "",
+  expiresInMs = null,
   onExpire,
   onNotify,
   onDuplicated,
 }: CreateAlertParams<Type>): Alert {
   const messageKey = message.replace(/\s/g, "").toLocaleLowerCase();
-  const titleKey = title?.replace(/\s/g, "").toLocaleLowerCase() || "";
+  const titleKey = title.replace(/\s/g, "").toLocaleLowerCase();
   // TODO: Allow for duplicate keys
   const key = `${type}:${titleKey}:${messageKey}`;
 
@@ -50,7 +50,7 @@ export function createAlert<Type extends AlertType = AlertType>({
     key,
     type,
     message,
-    expiresInMs: expiresInMs || null,
+    expiresInMs: expiresInMs,
     title,
     onNotify,
     onExpire,
