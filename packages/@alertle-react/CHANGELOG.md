@@ -1,5 +1,11 @@
 # @alertle/react
 
+## 0.0.4
+
+### Patch Changes
+
+- e468c6e: Fixed default expiry provided on Provider not being honored when no expirey is provided when creating an alert
+
 ## 0.0.3
 
 ### Patch Changes
