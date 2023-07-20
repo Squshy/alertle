@@ -189,7 +189,7 @@ export function AlertProvider(props: AlertProviderProps) {
         expiresInMs:
           params.expiresInMs !== undefined
             ? params.expiresInMs
-            : props.defaultExpiresInMs,
+            : props.defaultExpiresInMs ?? null,
       });
       return addAlert(alert);
     },
