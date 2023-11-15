@@ -53,7 +53,7 @@ export function AlertContainer() {
 
   return (
     <div>
-      {alerts).map((alert) => {
+      {alerts.map((alert) => {
         return (
           <div key={alert.key}>
             <p>Title: {alert.title}</p>
